@@ -105,3 +105,19 @@ else:
 print("with duplicates ", list_duplicates)
 list_duplicates = list(set(list_duplicates))
 print("no duplicates ", list_duplicates)
+
+# dictionary
+class_dict = {
+    "IE 201": "Caner Taşkın",
+    "IE 255": "Aybek Korugan",
+    "IE 202": "Tınaz Ekim"
+}
+
+print ("IE 201 is taught by: ", class_dict["IE 201"])
+
+if "IE 203" in class_dict:
+    print ("IE 203 is taught by: ", class_dict["IE 203"])
+else:
+    print ("IE 203 is not taught this semester")
+
+print (class_dict)
