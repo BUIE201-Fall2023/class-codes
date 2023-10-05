@@ -55,3 +55,32 @@ print(type(intF))
 f = int(f)
 print(f)
 print(type(f))
+
+int_list = [3, 5, 6]
+print(int_list)
+print(type(int_list))
+
+mixed_list = [3, 5.535, "a string"]
+print(mixed_list)
+print(type(mixed_list))
+
+int_tuple = (3, 5, 6)
+print(int_tuple)
+print(type(int_tuple))
+
+mixed_tuple = (3, 5.535, "a string")
+print(mixed_tuple)
+print(type(mixed_tuple))
+
+# modifications / mutation
+print("Before modification", int_list)
+int_list[1] = 242.545
+print("After modification", int_list)
+
+# compile error
+# wrong_list = ["fsdfsf")
+
+print("Before modification", int_tuple)
+# runtime error
+# int_tuple[1] = 242.545
+print("After modification", int_tuple)
