@@ -84,3 +84,24 @@ print("Before modification", int_tuple)
 # runtime error
 # int_tuple[1] = 242.545
 print("After modification", int_tuple)
+
+# set
+list_duplicates = [3, 5, 9, 3, 5]
+print(list_duplicates)
+
+int_set = {3, 5, 9, 3, 5}
+print(int_set)
+int_set.add(13)
+print(int_set)
+int_set.add(3)
+print(int_set)
+
+if 4 in int_set:
+    print("4 exists in set")
+else:
+    print("4 does not exist in set")
+
+# helpful to eliminate duplicates
+print("with duplicates ", list_duplicates)
+list_duplicates = list(set(list_duplicates))
+print("no duplicates ", list_duplicates)
