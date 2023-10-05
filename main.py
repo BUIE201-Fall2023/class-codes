@@ -36,3 +36,22 @@ if abs(floatsum - 0.3) < 0.000001:
     print("Yay, I can do accurate enough float addition!")
 else:
     print("This is a big float surprise!")
+
+b = True
+print(type(b))
+notB = False
+
+# Conversions
+f = 3.9536356
+print(f)
+print(type(f))
+
+intF = int(f)
+print(intF)
+print(type(intF))
+
+# dynamic types in Python
+# variable types can "change"
+f = int(f)
+print(f)
+print(type(f))
