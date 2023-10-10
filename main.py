@@ -55,7 +55,7 @@ while i < 10:
 # mathematical operators
 # +, -, *, /, //
 
-float_division = 5 / 2
+float_division = 11 / 9
 print(type(float_division), "=", float_division)
 
 int_division = 5 // 2
@@ -63,3 +63,15 @@ print(type(int_division), "=", int_division)
 
 mod_result = 5 % 2
 print(type(mod_result), "=", mod_result)
+
+power_result = 2 ** 5
+print(type(power_result), "=", power_result)
+
+# assignment operators
+# =, +=, -=, *=, /=, //=
+
+# equality / inequality checks
+# ==, <, <=, >, >=, !=, is
+
+# logical operators
+# and, or, not
