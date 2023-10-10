@@ -45,3 +45,9 @@ for i in range(10):
     elif i == 7:
         break
     print(i)
+
+i = 0
+while i < 10:
+    print("I'm in the while statement ", i)
+    i += 1
+
