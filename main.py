@@ -1,3 +1,4 @@
+import time
 
 # if condition:
 #     true statement
@@ -75,3 +76,56 @@ print(type(power_result), "=", power_result)
 
 # logical operators
 # and, or, not
+
+# in
+my_set = {4, 5, 10, 34, 3}
+if 6 in my_set:
+    print ("found 6 in set")
+else:
+    print ("not found 6 in set")
+
+my_list = [4, 5, 10, 34, 3]
+if 6 in my_list:
+    print ("found 6 in list")
+else:
+    print ("not found 6 in list")
+
+# also works for other collections such as dict
+my_dict = {
+    "IE 201": "Caner",
+    "IE 202": "Tınaz"
+    }
+if "IE 201" in my_dict:
+    print ("found IE 201 in dict")
+else:
+    print ("not found IE 201 in dict")
+
+# also for strings
+if "2" in "IE 201":
+    print ("found 2 in IE 201")
+else:
+    print ("not found 2 in IE 201")
+
+print("started building the_list and the_set")
+
+the_list = []
+the_set = set()
+for i in range(50000000):
+    the_list.append(i)
+    the_set.add(i)
+# print(the_list)
+# print(the_set)
+
+print("finished building the_list and the_set")
+
+search = -5
+
+list_start = time.time()
+if search in the_list:
+    print ("found in list")
+print("list search time = ", time.time() - list_start)
+
+set_start = time.time()
+if search in the_set:
+    print ("found in set")
+print("set search time = ", time.time() - set_start)
