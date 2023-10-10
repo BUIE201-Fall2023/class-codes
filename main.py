@@ -51,3 +51,15 @@ while i < 10:
     print("I'm in the while statement ", i)
     i += 1
 
+# operators
+# mathematical operators
+# +, -, *, /, //
+
+float_division = 5 / 2
+print(type(float_division), "=", float_division)
+
+int_division = 5 // 2
+print(type(int_division), "=", int_division)
+
+mod_result = 5 % 2
+print(type(mod_result), "=", mod_result)
