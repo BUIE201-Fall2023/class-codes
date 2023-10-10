@@ -24,3 +24,24 @@ match i:
     case "b": pass # handle case 2
     case "c": pass # handle case 3
     case _: pass # default case 
+
+print ("range(10)")
+for i in range(10):
+    print(i)
+
+print ("range(10, 15)")
+for i in range(10, 15):
+    print(i)
+
+print ("range(20, 45, 5)")
+for i in range(20, 45, 5):
+    print(i)
+
+# continue and break
+print ("range(10), continue")
+for i in range(10):
+    if i == 5:
+        continue
+    elif i == 7:
+        break
+    print(i)
