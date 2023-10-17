@@ -25,6 +25,18 @@ def fibonacci_recursive(n):
 fib5recursive = fibonacci_recursive(5)
 print(fib5recursive)
 
+def fibonacci_memoized(n, previous_values):
+    if n <= 2:
+        return 1
+    if n in previous_values:
+        return previous_values[n]
+    fib1 = fibonacci_memoized(n-1, previous_values)
+    fib2 = fibonacci_memoized(n-2, previous_values)
+    previous_values[n] = fib1 + fib2
+    return fib1 + fib2
+
+previous_value = {}
+fib5memoized = fibonacci_memoized(5, previous_value)
 
 n = 40
 start_iterative = time.time()
@@ -34,3 +46,7 @@ print(f"fibonacci_iterative({n}) took {time.time() - start_iterative}")
 start_recursive = time.time()
 fibonacci_recursive(n)
 print(f"fibonacci_recursive({n}) took {time.time() - start_recursive}")
+
+start_memoized = time.time()
+fibonacci_memoized(n, {})
+print(f"fibonacci_memoized({n}) took {time.time() - start_memoized}")
