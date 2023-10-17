@@ -1,33 +1,22 @@
-import time
-
-def factorial(n):
-    result = 1
-    current = 1
-    while current <= n:
-        result *= current
-        current += 1
-    return result
-
-def factorial_recursive(n):
-    if n == 0:
+def fibonacci_iterative(n):
+    if n <= 2:
         return 1
-    return n * factorial_recursive(n-1)
 
-fact5 = factorial(5)
-print(f"5! = {fact5} calculated iteratively")
+    prevprev = 1
+    prev = 1
+    for i in range(n-2):
+        current = prevprev + prev
+        prevprev = prev
+        prev = current
+    return current
 
-recursive_fact5 = factorial_recursive(5)
-print(f"5! = {recursive_fact5} calculated recursively")
+fib5 = fibonacci_iterative(5)
+print(fib5)
 
-# mind the maximum recursion depth 
-# recursive_fact1000 = factorial_recursive(1000)
-# print(f"1000! = {recursive_fact1000} calculated recursively")
+def fibonacci_recursive(n):
+    if n <= 2:
+        return 1
+    return fibonacci_recursive(n-1) + fibonacci_recursive(n-2)
 
-n = 997
-start_iterative = time.time()
-factorial(n)
-print("Iterative time: ", time.time() - start_iterative)
-
-start_recursive = time.time()
-factorial_recursive(n)
-print("Recursive time: ", time.time() - start_recursive)
+fib5recursive = fibonacci_recursive(5)
+print(fib5recursive)
