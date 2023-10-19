@@ -1,52 +1,22 @@
-import time
 
-def fibonacci_iterative(n):
-    if n <= 2:
-        return 1
+Year = 2023
+Month = 10
+Day = 19
 
-    prevprev = 1
-    prev = 1
-    for i in range(n-2):
-        current = prevprev + prev
-        prevprev = prev
-        prev = current
-    return current
+def print_date(Year, Month, Day):
+    print(f"The date is {Day}/{Month}/{Year}")
 
-fib5 = fibonacci_iterative(5)
-print(fib5)
+print_date(Year, Month, Day)
 
-def fibonacci_recursive(n):
-    if n <= 2:
-        return 1
-    fib1 = fibonacci_recursive(n-1)
-    fib2 = fibonacci_recursive(n-2)
-    return fib1 + fib2
+class Date:
+    def __init__(self) -> None:
+        self.Year = 1970
+        self.Month = 1
+        self.Day = 1
 
-fib5recursive = fibonacci_recursive(5)
-print(fib5recursive)
+today = Date()
+today.Year = 2023
+today.Month = 10
+today.Day = 19
 
-def fibonacci_memoized(n, previous_values):
-    if n <= 2:
-        return 1
-    if n in previous_values:
-        return previous_values[n]
-    fib1 = fibonacci_memoized(n-1, previous_values)
-    fib2 = fibonacci_memoized(n-2, previous_values)
-    previous_values[n] = fib1 + fib2
-    return fib1 + fib2
-
-previous_value = {}
-fib5memoized = fibonacci_memoized(5, previous_value)
-
-n = 40
-start_iterative = time.time()
-fibonacci_iterative(n)
-print(f"fibonacci_iterative({n}) took {time.time() - start_iterative}")
-
-start_recursive = time.time()
-fibonacci_recursive(n)
-print(f"fibonacci_recursive({n}) took {time.time() - start_recursive}")
-
-start_memoized = time.time()
-fibonacci_memoized(n, {})
-print(f"fibonacci_memoized({n}) took {time.time() - start_memoized}")
+i = 4
