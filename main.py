@@ -14,9 +14,13 @@ class Date:
         self.Month = 1
         self.Day = 1
 
+    def print(self):
+        print(f"The date is {self.Day}/{self.Month}/{self.Year}")
+
 today = Date()
 today.Year = 2023
 today.Month = 10
 today.Day = 19
+today.print()
 
 i = 4
