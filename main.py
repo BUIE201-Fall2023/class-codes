@@ -37,7 +37,8 @@ tomorrow.print()
 def f(date):
     print(type(date), id(date))
     date.print()
-    date.set_date(2025, 10, 24)
+    # date.set_date(2025, 10, 24)
+    date = Date(2025, 10, 24)
     print(type(date), id(date))
     date.print()
 
@@ -46,3 +47,4 @@ today.print()
 f(today)
 print("today after f: ", id(today))
 today.print()
+
