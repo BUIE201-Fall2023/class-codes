@@ -33,3 +33,16 @@ tomorrow.print()
 tomorrow = today
 print("tomorrow: ", id(tomorrow))
 tomorrow.print()
+
+def f(date):
+    print(type(date), id(date))
+    date.print()
+    date.set_date(2025, 10, 24)
+    print(type(date), id(date))
+    date.print()
+
+print("today before f: ", id(today))
+today.print()
+f(today)
+print("today after f: ", id(today))
+today.print()
