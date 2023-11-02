@@ -1,3 +1,4 @@
+import sys
 
 class Date:
     def __init__(self, Year, Month, Day) -> None:
@@ -36,9 +37,18 @@ class Viewer:
         self.Movies.append(Movie)
 
 interstellar = Movie("Interstellar", 2014, 11, 7)
+print("interstellar ref count: ", sys.getrefcount(interstellar))
+
+inception = Movie("Inception", 2010, 7, 30)
 
 caner = Viewer("caner")
+tamer = Viewer("tamer")
 
 caner.add_movie(interstellar)
+print("interstellar ref count: ", sys.getrefcount(interstellar))
+
+caner.add_movie(inception)
+
+tamer.add_movie(inception)
 
 i = 5
