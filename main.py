@@ -27,7 +27,18 @@ class Movie:
         self.Name = Name
         self.ReleaseDate = Date(Year, Month, Day)
 
+class Viewer:
+    def __init__(self, Name) -> None:
+        self.Name = Name
+        self.Movies = []
+    
+    def add_movie(self, Movie):
+        self.Movies.append(Movie)
 
 interstellar = Movie("Interstellar", 2014, 11, 7)
+
+caner = Viewer("caner")
+
+caner.add_movie(interstellar)
 
 i = 5
