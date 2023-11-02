@@ -36,19 +36,10 @@ class Viewer:
     def add_movie(self, Movie):
         self.Movies.append(Movie)
 
-interstellar = Movie("Interstellar", 2014, 11, 7)
-print("interstellar ref count: ", sys.getrefcount(interstellar))
+def f():
+    interstellar = Movie("Interstellar", 2014, 11, 7)
+    print ("interstellar", id(interstellar))
 
-inception = Movie("Inception", 2010, 7, 30)
-
-caner = Viewer("caner")
-tamer = Viewer("tamer")
-
-caner.add_movie(interstellar)
-print("interstellar ref count: ", sys.getrefcount(interstellar))
-
-caner.add_movie(inception)
-
-tamer.add_movie(inception)
-
-i = 5
+print ("before f")
+f()
+print ("after f")
