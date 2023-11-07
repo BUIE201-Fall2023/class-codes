@@ -1,50 +1,27 @@
-class Rectangle:
-    def __init__(self, Height, Width) -> None:
-        self.Height = Height
-        self.Width = Width
-    
-    def print(self):
-        for i in range(self.Height):
-            for j in range(self.Width):
-                print("*", end="")
-            print()
+class Animal:
+    def talk(self):
+        pass
 
-r = Rectangle(5, 7)
-r.print()
-# Rectangle.print(r) # equivalent to the previous call
+class Cat(Animal):
+    def talk(self):
+        print("miyav")
 
-class Square:
-    def __init__(self, dimension) -> None:
-        self.dimension = dimension
+class Dog(Animal):
+    def talk(self):
+        print("hav")
 
-    def print(self):
-        for i in range(self.dimension):
-            for j in range(self.dimension):
-                print("*", end="")
-            print()
+class Bird(Animal):
+    def talk(self):
+        print("cik")
 
-s = Square(3)
-s.print()
+c = Cat()
+c.talk()
 
-class NewSquare(Rectangle):
-    def __init__(self, dimension, additional_field = 5) -> None:
-        super().__init__(dimension, dimension)
-        self.my_additional_field = additional_field
-        # violates data encapsulation
-        # self.Height = dimension
-        # self.Width = dimension
-    
-    def my_additional_function(self):
-        print("NewSquare.my_additional_function was called ", self.my_additional_field)
+d = Dog()
+d.talk()
 
-    # function override
-    def print(self):
-        print("NewSquare.print() was called")
-        super().print()
-
-ns = NewSquare(8)
-ns.print()
-ns.my_additional_function()
-
-i = 5
-
+# polymorphism
+b = Bird()
+pets = [c, d, b]
+for pet in pets:
+    pet.talk()
