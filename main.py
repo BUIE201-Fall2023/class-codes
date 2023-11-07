@@ -30,16 +30,21 @@ class NewSquare(Rectangle):
     def __init__(self, dimension, additional_field = 5) -> None:
         super().__init__(dimension, dimension)
         self.my_additional_field = additional_field
-
         # violates data encapsulation
         # self.Height = dimension
         # self.Width = dimension
     
     def my_additional_function(self):
         print("NewSquare.my_additional_function was called ", self.my_additional_field)
-    
+
+    # function override
+    def print(self):
+        print("NewSquare.print() was called")
+        super().print()
+
 ns = NewSquare(8)
 ns.print()
 ns.my_additional_function()
 
 i = 5
+
