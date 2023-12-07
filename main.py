@@ -2,85 +2,61 @@ class ListNode:
     def __init__(self, value) -> None:
         self.value = value
         self.next = None
+    
+    def insert_end_recursive(self, value):
+        if self.next == None:
+            self.next = ListNode(value)
+        else:
+            self.next.insert_end_recursive(value)
+    
+    def count_recursive(self):
+        if self.next == None:
+            return 1
+        else:
+            return 1 + self.next.count_recursive()
+        
+    def find_recursive(self, value):
+        if self.value == value:
+            return True
+        elif self.next == None:
+            return False
+        else:
+            return self.next.find_recursive(value)
 
 class LinkedList:
     def __init__(self) -> None:
         self.root = None
 
-    # O(1)
     def insert_front(self, value):
-        if self.root == None:
-            self.root = ListNode(value)
-        else:
-            new_node = ListNode(value)
-            new_node.next = self.root
-            self.root = new_node
+        new_node = ListNode(value)
+        new_node.next = self.root
+        self.root = new_node
 
-    # O(n)
     def insert_end(self, value):
         if self.root == None:
             self.root = ListNode(value)
         else:
-            # find the last node
-            current_node = self.root
-            while current_node.next:
-                current_node = current_node.next
-            # insert a new node at the end
-            current_node.next = ListNode(value)
+            self.root.insert_end_recursive(value)
 
-    # O(n)
     def count(self):
         if self.root == None:
             return 0
         else:
-            i = 0
-            current_node = self.root
-            while current_node:
-                i += 1
-                current_node = current_node.next
-            return i
+            return self.root.count_recursive()
 
-    # O(n)    
     def find(self, value):
         if self.root == None:
-            return None
+            return False
         else:
-            current_node = self.root
-            while current_node:
-                if current_node.value == value:
-                    return current_node
-                else:
-                    current_node = current_node.next
-            return None
+            return self.root.find_recursive(value)
     
-    # O(n)
     def get_index(self, index):
-        if self.root == None:
-            return None
-        else:
-            current_index = 0
-            current_node = self.root
-            while current_node:
-                if index == current_index:
-                    return current_node
-                else:
-                    current_index += 1
-                    current_node = current_node.next
-            return None
+        pass
         
     def print(self):
-        if self.root == None:
-            print("[]")
-        else:
-            print("[", end="")
-            current_node = self.root
-            while current_node:
-                print(current_node.value, end=" ")
-                current_node = current_node.next
-            print("]")
+        pass
 
 l = LinkedList()
-count = l.count()
 
 l.insert_front(3)
 l.insert_front(6)
@@ -94,8 +70,8 @@ find3 = l.find(3)
 
 find5 = l.find(5)
 
-index2 = l.get_index(2)
+# index2 = l.get_index(2)
 
-l.print()
+# l.print()
 
 i = 4
