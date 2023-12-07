@@ -52,6 +52,32 @@ class LinkedList:
                 else:
                     current_node = current_node.next
             return None
+    
+    # O(n)
+    def get_index(self, index):
+        if self.root == None:
+            return None
+        else:
+            current_index = 0
+            current_node = self.root
+            while current_node:
+                if index == current_index:
+                    return current_node
+                else:
+                    current_index += 1
+                    current_node = current_node.next
+            return None
+        
+    def print(self):
+        if self.root == None:
+            print("[]")
+        else:
+            print("[", end="")
+            current_node = self.root
+            while current_node:
+                print(current_node.value, end=" ")
+                current_node = current_node.next
+            print("]")
 
 l = LinkedList()
 count = l.count()
@@ -68,3 +94,8 @@ find3 = l.find(3)
 
 find5 = l.find(5)
 
+index2 = l.get_index(2)
+
+l.print()
+
+i = 4
