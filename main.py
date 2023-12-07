@@ -17,6 +17,18 @@ class LinkedList:
             self.root = new_node
 
     # O(n)
+    def insert_end(self, value):
+        if self.root == None:
+            self.root = ListNode(value)
+        else:
+            # find the last node
+            current_node = self.root
+            while current_node.next:
+                current_node = current_node.next
+            # insert a new node at the end
+            current_node.next = ListNode(value)
+
+    # O(n)
     def count(self):
         if self.root == None:
             return 0
@@ -28,6 +40,19 @@ class LinkedList:
                 current_node = current_node.next
             return i
 
+    # O(n)    
+    def find(self, value):
+        if self.root == None:
+            return None
+        else:
+            current_node = self.root
+            while current_node:
+                if current_node.value == value:
+                    return current_node
+                else:
+                    current_node = current_node.next
+            return None
+
 l = LinkedList()
 count = l.count()
 
@@ -35,5 +60,11 @@ l.insert_front(3)
 l.insert_front(6)
 l.insert_front(10)
 
+l.insert_end(15)
+
 count = l.count()
+
+find3 = l.find(3)
+
+find5 = l.find(5)
 
