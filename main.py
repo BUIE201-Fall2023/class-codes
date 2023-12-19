@@ -1,96 +1,37 @@
-class ListNode:
+class TreeNode:
     def __init__(self, value) -> None:
         self.value = value
-        self.next = None
-    
-    def insert_end_recursive(self, value):
-        if self.next == None:
-            self.next = ListNode(value)
-        else:
-            self.next.insert_end_recursive(value)
-    
-    def count_recursive(self):
-        if self.next == None:
-            return 1
-        else:
-            return 1 + self.next.count_recursive()
-        
-    def find_recursive(self, value):
-        if self.value == value:
-            return True
-        elif self.next == None:
-            return False
-        else:
-            return self.next.find_recursive(value)
-        
-    def print_recursive(self):
-        print(self.value, " ", end="")
-        if self.next:
-            self.next.print_recursive()
+        self.left = None
+        self.right = None
 
-    def print_recursive_backward(self):
-        if self.next:
-            self.next.print_recursive_backward()
-        print(self.value, " ", end="")
+    def insert_recursive(self, value):
+        if value <= self.value:
+            if self.left == None:
+                self.left = TreeNode(value)
+            else:
+                self.left.insert_recursive(value)
+        else:
+            if self.right == None:
+                self.right = TreeNode(value)
+            else:
+                self.right.insert_recursive(value)
 
-class LinkedList:
+class Tree:
     def __init__(self) -> None:
         self.root = None
-
-    def insert_front(self, value):
-        new_node = ListNode(value)
-        new_node.next = self.root
-        self.root = new_node
-
-    def insert_end(self, value):
-        if self.root == None:
-            self.root = ListNode(value)
-        else:
-            self.root.insert_end_recursive(value)
-
-    def count(self):
-        if self.root == None:
-            return 0
-        else:
-            return self.root.count_recursive()
-
-    def find(self, value):
-        if self.root == None:
-            return False
-        else:
-            return self.root.find_recursive(value)
     
-    def print(self):
+    # O(log n)
+    def insert(self, value):
         if self.root == None:
-            print("[]")
+            self.root = TreeNode(value)
         else:
-            print("[", end="")
-            self.root.print_recursive()
-            print("]")
+            self.root.insert_recursive(value)
 
-    def print_backward(self):
-        if self.root == None:
-            print("[]")
-        else:
-            print("[", end="")
-            self.root.print_recursive_backward()
-            print("]")
+t = Tree()
+t.insert(10)
+t.insert(15)
+t.insert(5)
+t.insert(13)
+t.insert(3)
+t.insert(8)
 
-l = LinkedList()
-
-l.insert_front(3)
-l.insert_front(6)
-l.insert_front(10)
-
-l.insert_end(15)
-
-count = l.count()
-
-find3 = l.find(3)
-
-find5 = l.find(5)
-
-l.print()
-l.print_backward()
-
-i = 4
