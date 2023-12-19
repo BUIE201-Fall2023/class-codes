@@ -22,6 +22,16 @@ class ListNode:
             return False
         else:
             return self.next.find_recursive(value)
+        
+    def print_recursive(self):
+        print(self.value, " ", end="")
+        if self.next:
+            self.next.print_recursive()
+
+    def print_recursive_backward(self):
+        if self.next:
+            self.next.print_recursive_backward()
+        print(self.value, " ", end="")
 
 class LinkedList:
     def __init__(self) -> None:
@@ -50,11 +60,21 @@ class LinkedList:
         else:
             return self.root.find_recursive(value)
     
-    def get_index(self, index):
-        pass
-        
     def print(self):
-        pass
+        if self.root == None:
+            print("[]")
+        else:
+            print("[", end="")
+            self.root.print_recursive()
+            print("]")
+
+    def print_backward(self):
+        if self.root == None:
+            print("[]")
+        else:
+            print("[", end="")
+            self.root.print_recursive_backward()
+            print("]")
 
 l = LinkedList()
 
@@ -70,8 +90,7 @@ find3 = l.find(3)
 
 find5 = l.find(5)
 
-# index2 = l.get_index(2)
-
-# l.print()
+l.print()
+l.print_backward()
 
 i = 4
