@@ -33,6 +33,12 @@ class ListNode:
             self.next.print_recursive_backward()
         print(self.value, " ", end="")
 
+    def sum_recursive(self):
+        if self.next:
+            return self.value + self.next.sum_recursive()
+        else:
+            return self.value
+
 class LinkedList:
     def __init__(self) -> None:
         self.root = None
@@ -76,6 +82,20 @@ class LinkedList:
             self.root.print_recursive_backward()
             print("]")
 
+    def sum_iterative(self):
+        total = 0
+        current_node = self.root
+        while current_node:
+            total += current_node.value
+            current_node = current_node.next
+        return total
+
+    def sum_recursive(self):
+        if self.root == None:
+            return 0
+        else:
+            return self.root.sum_recursive()
+
 l = LinkedList()
 
 l.insert_front(3)
@@ -92,5 +112,8 @@ find5 = l.find(5)
 
 l.print()
 l.print_backward()
+
+result = l.sum_iterative()
+result2 = l.sum_recursive()
 
 i = 4
