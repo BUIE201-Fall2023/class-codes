@@ -1,37 +1,26 @@
-i = hash("caner")
-print(i)
+l = [30, 4, 34, 13, -6]
 
-class HashTable:
-    def __init__(self) -> None:
-        self.BUCKET_SIZE = 100
-        self.buckets = [None] * self.BUCKET_SIZE
+l_sorted = sorted(l)
 
-    # O(1) on average
-    def insert(self, value):
-        hashed_value = hash(value)
-        index = hashed_value % self.BUCKET_SIZE
-        if self.buckets[index] is None:
-            self.buckets[index] = []
-        self.buckets[index].append(value)
-    
-    # O(1) on average
-    def find(self, value):
-        hashed_value = hash(value)
-        index = hashed_value % self.BUCKET_SIZE
+i = 4
 
-        if self.buckets[index] is None:
-            return False
-        else:
-            return value in self.buckets[index]
+# list comprehension
+s = ["caner", "tamer", "mustafa", "necati"]
 
-# Python set and dictionary are based on hash tables
-        
-h = HashTable()
-h.insert("caner")
-h.insert("tamer")
-h.insert("tınaz")
+s_uppercase = []
+for current in s:
+    s_uppercase.append(current.capitalize())
 
-find1 = h.find("caner")
-find2 = h.find("mustafa")
+print(s_uppercase)
 
-i = 5
+s_comp = [x.capitalize() for x in s]
+print(s_comp)
+
+# set comprehension
+s_comp_set = {x.capitalize() for x in s}
+print(s_comp_set)
+
+b = [2, 5, 9, 10, 15, 30, 50]
+
+# O(log n) algorithm on an ordered list
+# binary_search(b, 8)
