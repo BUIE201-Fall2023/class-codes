@@ -41,6 +41,14 @@ class TreeNode:
             right_count = self.right.count_recursive()
 
         return 1 + left_count + right_count
+    
+    # O(n)
+    def print_recursive(self):
+        if self.left:
+            self.left.print_recursive()
+        print(self.value, " ", end="")
+        if self.right:
+            self.right.print_recursive()
 class Tree:
     def __init__(self) -> None:
         self.root = None
@@ -65,6 +73,12 @@ class Tree:
             return 0
         else:
             return self.root.count_recursive()
+    
+    def print(self):
+        print("{", end="")
+        if self.root:
+            self.root.print_recursive()
+        print("}")
 
 t = Tree()
 t.insert(10)
@@ -78,5 +92,7 @@ r = t.find(8)
 r2 = t.find(20)
 
 n = t.count()
+
+t.print()
 
 i = 4
